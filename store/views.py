@@ -57,9 +57,6 @@ def get_add_product_page(request):
             return redirect('home')
         else:
             context['form'] = form1
-            # print(form.errors)
-        #     error = form.errors
-        #     context['error'] = error
 
     return render(request, 'add_product.html', context)
 
