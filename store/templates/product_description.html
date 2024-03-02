@@ -1,0 +1,27 @@
+{%  extends 'store.html' %}
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/product_description.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="product">
+    {% for product in product %}
+    <div class="name_photo">
+        <p><strong>{{ product.name }}</strong></p>
+        <div class="photo">
+            <img src="{{product.image.url}}" alt="">
+        </div>
+    </div>
+    <div class="description">
+        {{ product.description }}
+            <div class="colors">
+                <strong>Цвета:</strong> {% for color in colors %}
+                    <ul><li>{{ color }}</li></ul>
+                {% endfor %}
+            </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

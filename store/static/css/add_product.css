@@ -1,0 +1,100 @@
+.main_form {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.form {
+    width: 400px;
+    border: solid black 2px;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form tr {
+    height: 40px;
+    width: 280px;
+    text-align: left;
+}
+
+.form label:hover {
+    background: #cce0ec;
+    color: #666;
+}
+
+.form input {
+    width: 200px;
+}
+
+.form input[type=text]:valid {
+    background: #a9bfbf;
+    border: 1px solid green;
+}
+
+.form input[type=text]:invalid {
+    border: 1px solid #CC3366;
+}
+
+.form input[type=text]:focus {
+    background: #ffe;
+}
+
+.form input[type=number]:valid {
+    background: #a9bfbf;
+    border: 1px solid green;
+}
+
+.form input[type=number]:invalid {
+    border: 1px solid #CC3366;
+}
+
+.form input[type=number]:focus {
+    background: #ffe;
+}
+
+.form textarea {
+    resize: vertical;
+    max-height: 200px;
+    height: 70px;
+    width: 200px;
+}
+
+.form textarea:focus {
+    background: #ffe;
+}
+
+.form textarea:valid {
+    background: #a9bfbf;
+    border: 1px solid green;
+}
+
+.form textarea:invalid {
+    border: 1px solid #CC3366;
+}
+
+.form textarea:focus {
+    background: #ffe;
+}
+
+.form input[type=checkbox] {
+    width: 25px;
+}
+
+.form input[type=checkbox]:checked + label {
+    background: #cce0ec;
+}
+
+.form input[type=radio] {
+    width: 25px;
+}
+
+.form button {
+    height: 25px;
+    width: 100px;
+    border: solid black 2px;
+    margin-top: 15px;
+}

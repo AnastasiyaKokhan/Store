@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="{% static 'css/store.css' %}">
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" alt=""></a>
+    </div>
+    <div class="shop">
+        <h2>Мой магазин</h2>
+    </div>
+    <div class="phone_number">
+       <a href="tel:+375291111111">+375(29)111-11-11</a><br>
+       <a href="tel:+375441111111">+375(44)111-11-11</a><br>
+       <a href="tel:+375331111111">+375(33)111-11-11</a>
+    </div>
+</div>
+<div class="navigate">
+    {% block navigate %}
+    {% for store in stores %}
+    <a href="{% url 'products' store.id %}">
+    <div class="store_card">
+        <strong>{{ store }}</strong>
+    </div>
+    </a>
+    {% endfor %}
+    {% endblock %}
+</div>
+<div class="main">
+    {% block main %}
+    <div class="main_product_line">
+    {% for product in products %}
+    <div>
+    <a href="{% url 'product_description' product.id %}" class="card_link">
+        <div class="card">
+            <h3>{{ product.name }}</h3>
+            <div class="card_img">
+                <img src="{{product.image.url}}" alt="">
+            </div>
+            <p>{{ product.price }}</p>
+        </div>
+    </a>
+    </div>
+    {% endfor %}
+    </div>
+
+    <div class="add_book_button">
+        <a href="{% url 'add_product' %}"><b>Добавить продукт</b></a>
+    </div>
+
+    {% endblock %}
+</div>
+
+</body>
+</html>

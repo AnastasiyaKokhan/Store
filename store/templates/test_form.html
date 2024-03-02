@@ -1,0 +1,24 @@
+{%  extends 'store.html' %}
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/test_product.css' %}">
+{% endblock %}
+
+{% block navigate %}
+{% endblock %}
+
+{% block main %}
+<div>
+    <div>
+        <h3>ModelForm</h3>
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button>отправить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
