@@ -8,9 +8,24 @@
     padding-right: 20px;
 }
 
+.home_link {
+    text-decoration: none;
+    color: black;
+}
+
+.home_link:hover {
+    text-decoration: underline;
+}
+
+.shop_name {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
     max-width: 100px;
     max-height: 100px;
+    margin: 20px;
 }
 
 .logo img {
@@ -21,6 +36,10 @@
 .phone_number a {
     text-decoration: none;
     color: black;
+}
+
+.phone_number a:hover {
+    text-decoration: underline;
 }
 
 .navigate {
@@ -45,6 +64,10 @@
 .navigate a {
     text-decoration: none;
     color: black;
+}
+
+.navigate a:hover {
+    text-decoration: underline;
 }
 
 .main {
@@ -74,6 +97,10 @@
     margin-top: 20px;
 }
 
+.card:hover {
+    box-shadow: 0 0 15px #6284a0;
+}
+
 .card_link {
     text-decoration: none;
     color: black;
@@ -99,6 +126,15 @@
 .add_book_button a {
     background: #7097b7;
     text-decoration: none;
+    border-radius: 10%;
+    margin: 20px;
+    padding: 5px;
+    color: black;
+}
+
+.add_book_button a:hover {
+    background: #8fb9db;
+    text-decoration: underline;
     border-radius: 10%;
     margin: 20px;
     padding: 5px;

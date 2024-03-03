@@ -3,19 +3,21 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Store</title>
     <link rel="stylesheet" href="{% static 'css/store.css' %}">
     {% block style %}
     {% endblock %}
 </head>
 <body>
 <div class="header">
-    <div class="logo">
-        <a href="{% url 'home' %}"><img src="{% static 'img/logo.jpg' %}" alt=""></a>
-    </div>
-    <div class="shop">
-        <h2>Мой магазин</h2>
-    </div>
+    <a href="{% url 'home' %}" class="home_link">
+        <div class="shop_name">
+            <div class="logo">
+                <img src="{% static 'img/logo.jpg' %}" alt="">
+            </div>
+            <h2>Мой магазин</h2>
+        </div>
+    </a>
     <div class="phone_number">
        <a href="tel:+375291111111">+375(29)111-11-11</a><br>
        <a href="tel:+375441111111">+375(44)111-11-11</a><br>
@@ -26,9 +28,9 @@
     {% block navigate %}
     {% for store in stores %}
     <a href="{% url 'products' store.id %}">
-    <div class="store_card">
-        <strong>{{ store }}</strong>
-    </div>
+        <div class="store_card">
+            <strong>{{ store }}</strong>
+        </div>
     </a>
     {% endfor %}
     {% endblock %}
@@ -50,13 +52,10 @@
     </div>
     {% endfor %}
     </div>
-
     <div class="add_book_button">
         <a href="{% url 'add_product' %}"><b>Добавить продукт</b></a>
     </div>
-
     {% endblock %}
 </div>
-
 </body>
 </html>
