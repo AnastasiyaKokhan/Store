@@ -10,8 +10,32 @@
 </head>
 <body>
 <div class="header">
+    <div>
+        {% if user.is_authenticated %}
+        <div class="logged">
+            <div class="user">
+                <div class="user_image">
+                    <img src="{{user.profile.image.url}}" alt="">
+                </div>
+                <h3>{{ user.username }}</h3>
+            </div>
+            <div class="signout_link">
+                <a href="{% url 'signout' %}">Выйти</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="logging">
+            <div class="signin_link">
+                <a href="{% url 'signin_form' %}">Войти</a>
+            </div>
+            <div class="signup_link">
+                <a href="{% url 'signup_form' %}">Зарегистрироваться</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
     <a href="{% url 'home' %}" class="home_link">
-        <div class="shop_name">
+        <div class="shop">
             <div class="logo">
                 <img src="{% static 'img/logo.jpg' %}" alt="">
             </div>

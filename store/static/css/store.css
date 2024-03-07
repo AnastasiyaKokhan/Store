@@ -8,6 +8,69 @@
     padding-right: 20px;
 }
 
+.logged {
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user_image {
+    max-height: 40px;
+    max-width: 40px;
+    margin-right: 20px;
+}
+
+.user_image img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.signout_link {
+    text-align: center;
+    border: solid black 1px;
+    border-radius: 10%;
+}
+
+.signout_link a {
+    text-decoration: none;
+    color: black;
+}
+
+.signout_link:hover {
+    background: #ea8c91;
+    color: black;
+}
+
+.logging {
+    display: flex;
+}
+
+.logging a {
+    text-decoration: none;
+    color: black;
+}
+
+.logging div:hover {
+    text-decoration: underline;
+    background: #65acea;
+    color: #6db3f0;
+}
+
+.signin_link {
+    padding: 5px;
+    border-right: solid black 1px;
+}
+
+.signup_link {
+    padding: 5px;
+    border-left: solid black 1px;
+}
+
 .home_link {
     text-decoration: none;
     color: black;
@@ -17,7 +80,7 @@
     text-decoration: underline;
 }
 
-.shop_name {
+.shop {
     display: flex;
     align-items: center;
 }
@@ -98,7 +161,7 @@
 }
 
 .card:hover {
-    box-shadow: 0 0 15px #6284a0;
+    box-shadow: 10px 10px 15px #6284a0;
 }
 
 .card_link {
