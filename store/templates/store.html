@@ -13,12 +13,14 @@
     <div>
         {% if user.is_authenticated %}
         <div class="logged">
+            <a href="{% url 'profile' %}">
             <div class="user">
                 <div class="user_image">
                     <img src="{{user.profile.image.url}}" alt="">
                 </div>
                 <h3>{{ user.username }}</h3>
             </div>
+            </a>
             <div class="signout_link">
                 <a href="{% url 'signout' %}">Выйти</a>
             </div>

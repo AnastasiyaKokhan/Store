@@ -31,6 +31,14 @@
     border: 2px solid green;
 }
 
+.date {
+    width: 69px;
+}
+
+.date:valid {
+    border: 2px solid green;
+}
+
 .buttons {
     display: flex;
     margin-top: 20px;

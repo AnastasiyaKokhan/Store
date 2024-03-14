@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .forms import SignUpForm, SignInForm
+from .forms import SignUpForm, SignInForm, UpdateForm
 from .models import Profile
 
 
@@ -19,9 +19,9 @@ def get_signup_form(request):
             email = cd['email']
             password = cd['password1']
             image = cd['img']
+            birth = cd['birth_date']
             new_user = User.objects.create_user(username=username, email=email, password=password)
-            profile = Profile.objects.create(user=new_user, image=image)
-            new_user = profile.user
+            Profile.objects.create(user=new_user, image=image, birth_date=birth)
             new_user.save()
             return redirect('signin_form')
     context = {
@@ -38,7 +38,7 @@ def get_signin_form(request):
             cd = signin_form.cleaned_data
             username = cd['name']
             password = cd['password']
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
                 return redirect('home')
@@ -53,3 +53,32 @@ def get_signin_form(request):
 def signout(request):
     logout(request)
     return redirect('home')
+
+
+def get_profile_page(request):
+    profile = Profile.objects.all()
+    context = {
+        'profile': profile,
+    }
+    return render(request, 'profile.html', context)
+
+
+def edit_profile(request):
+    user = request.user
+    form = UpdateForm(initial={'img': user.profile.image,
+                               'name': user.username,
+                               'birth_date': user.profile.birth_date,
+                               'email': user.email})
+    if request.method == 'POST':
+        form = UpdateForm(request.POST, request.FILES)
+        if form.is_valid():
+            user.profile.image = form.cleaned_data['img']
+            user.username = form.cleaned_data['name']
+            user.profile.birth_date = form.cleaned_data['birth_date']
+            user.email = form.cleaned_data['email']
+            user.save()
+            return redirect('profile')
+    context = {
+        "form": form,
+    }
+    return render(request, "update_form.html", context)

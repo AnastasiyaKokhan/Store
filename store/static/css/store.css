@@ -13,6 +13,16 @@
     flex-direction: column;
 }
 
+.logged a {
+    text-decoration: none;
+    color: black;
+}
+
+.logged a:hover {
+    border-radius: 20%;
+    background: #65acea;
+}
+
 .user {
     display: flex;
     align-items: center;

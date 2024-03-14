@@ -1,0 +1,27 @@
+{%  extends 'store.html' %}
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/signup_form.css' %}">
+{% endblock %}
+
+{% block navigate %}
+{% endblock %}
+
+{% block main %}
+<div class="main_form">
+    <div class="form">
+        <div><h2>Изменить профиль</h2></div>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <div class="buttons">
+                <input type="submit" value="изменить">
+                <input type="reset" value="сбросить">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

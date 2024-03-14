@@ -1,0 +1,27 @@
+{%  extends 'store.html' %}
+
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block navigate %}
+{% endblock %}
+
+{% block main %}
+<div class="profile">
+    <div class="image">
+        <img src="{{user.profile.image.url}}" alt="">
+    </div>
+    <div class="information">
+        <h3><u>Информация о пользователе</u></h3>
+        <b>Имя пользователя:</b> {{ user.username }}<br>
+        <b>День рождения:</b> {{ user.profile.birth_date }}<br>
+        <b>Email:</b> {{ user.email }}<br>
+    </div>
+</div>
+<div class="buttons">
+    <div class="button1"><a href="{% url 'edit_profile' %}">изменить профиль</a></div>
+    <div class="button2"><a href="">изменить пароль</a></div>
+</div>
+{% endblock %}
