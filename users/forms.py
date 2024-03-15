@@ -36,10 +36,10 @@ class SignInForm(forms.Form):
                                widget=forms.PasswordInput(attrs={'class': 'input'}))
 
 
-class UpdateForm(forms.Form):
+class EditForm(forms.Form):
     img = forms.ImageField(initial='no_user_photo.webp',
                            label='Фотография',
-                           widget=forms.FileInput(attrs={'class': 'file'}))
+                           widget=forms.ClearableFileInput(attrs={'class': 'file'}))
     name = forms.CharField(label='Имя пользователя*',
                            widget=forms.TextInput(attrs={'class': 'input'}))
     birth_date = forms.DateField(required=False,

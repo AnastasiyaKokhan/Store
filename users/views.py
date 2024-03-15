@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .forms import SignUpForm, SignInForm, UpdateForm
+from .forms import SignUpForm, SignInForm, EditForm
 from .models import Profile
 
 
@@ -65,17 +65,18 @@ def get_profile_page(request):
 
 def edit_profile(request):
     user = request.user
-    form = UpdateForm(initial={'img': user.profile.image,
-                               'name': user.username,
-                               'birth_date': user.profile.birth_date,
-                               'email': user.email})
+    form = EditForm(initial={'img': user.profile.image,
+                             'name': user.username,
+                             'birth_date': user.profile.birth_date,
+                             'email': user.email})
     if request.method == 'POST':
-        form = UpdateForm(request.POST, request.FILES)
+        form = EditForm(request.POST, request.FILES)
         if form.is_valid():
             user.profile.image = form.cleaned_data['img']
             user.username = form.cleaned_data['name']
             user.profile.birth_date = form.cleaned_data['birth_date']
             user.email = form.cleaned_data['email']
+            user = user.profile
             user.save()
             return redirect('profile')
     context = {
